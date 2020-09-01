@@ -133,7 +133,16 @@ class HashTable:
 
         Implement this.
         """
-        # Your code here
+        prevBucket = self.buckets
+        self.capacity = new_capacity
+        self.buckets = [None] * new_capacity
+        for x in range(len(prevBucket)):
+            oldBucket = prevBucket[x]
+            if oldBucket:
+                while oldBucket:
+                    if oldBucket.key:
+                        self.put(oldBucket.key, oldBucket.value)
+                        oldBucket = oldBucket.next
 
 
 
