@@ -1,6 +1,12 @@
 def no_dups(s):
-    # Your code here
-
+    nonDups = []
+    if s == '':
+        return ''
+    x = s.split(' ')
+    a = dict.fromkeys(x)
+    for key in a.keys():
+        nonDups.append(key)
+    return ' '.join(nonDups)
 
 
 if __name__ == "__main__":

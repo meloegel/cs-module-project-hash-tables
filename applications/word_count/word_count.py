@@ -1,7 +1,17 @@
 def word_count(s):
-    # Your code here
-
-
+    cache = {}
+    lowS = s.lower()
+    symbols = '" : , . - + ; = | \ / { } [ ] ( ) * ^ &'.split(" ")
+    for char in symbols:
+        lowS = lowS.replace(char, "")
+    for x in lowS.split():
+        if x == "":
+            continue
+        if x not in cache:
+            cache[x] = 1
+        else:
+            cache[x] += 1
+    return cache
 
 if __name__ == "__main__":
     print(word_count(""))
